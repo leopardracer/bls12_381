@@ -664,7 +664,7 @@ impl CurveExt for G1Projective {
     }
 
     fn jacobian_coordinates(&self) -> (Fp, Fp, Fp) {
-        // Homogenous to Jacobian
+        // Homogeneous to Jacobian
         let x = self.x * self.z;
         let y = self.y * self.z.square();
         (x, y, self.z)
@@ -693,7 +693,7 @@ impl CurveExt for G1Projective {
     }
 
     fn new_jacobian(x: Self::Base, y: Self::Base, z: Self::Base) -> CtOption<Self> {
-        // Jacobian to homogenous
+        // Jacobian to homogeneous
         let z_inv = z.invert().unwrap_or(Fp::zero());
         let p_x = x * z_inv;
         let p_y = y * z_inv.square();
